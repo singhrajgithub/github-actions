@@ -9,7 +9,7 @@ on:
         required: true
         type: string
       rollback_build:
-        description: 'Build number to be deployed for rollback :'
+        description: 'Rollback Build number to be deployed:'
         required: true
         type: string
       additional_input:
@@ -58,5 +58,8 @@ jobs:
               echo "GITHUB_WORKSPACE = ${{ github.workspace }}"
               echo "Current directory: $(pwd)"     
               echo "progressing with the deployment in target environment"
+              echo "PR title given values : ${{ github.event.inputs.pr_title }}
+              echo "Rollback build given values : ${{ github.event.inputs.rollback_build }}
+              echo "Any additional input given values : ${{ github.event.inputs.additional_input }}              
 
  
