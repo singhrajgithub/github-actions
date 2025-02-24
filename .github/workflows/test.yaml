@@ -1,5 +1,16 @@
 name: My First GitHub Actions
-on: [push]
+on:
+#   pull_request_review:
+#     types: [submitted, edited]
+  workflow_dispatch:
+    inputs:
+      pr_title:
+        description: 'Pull Request Title'
+        required: true
+        type: string
+
+# on: [push]
+
 jobs:
     manual-approval:
       name: Manual Approval
@@ -15,3 +26,24 @@ jobs:
             minimum-approvals: 1
             issue-title: "Manual Approval Required for deployment"
             issue-body: "Please approve or deny the deployment."  
+
+    Deploy:
+       name: Deploy Application to the GKE Cluster
+       runs-on: ubuntu-latest
+       permissions:
+         contents: read
+         id-token: write
+       steps:
+         - uses: actions/checkout@v4        
+          ## Set Up Helm dependency ###
+         - name: Setup Helm dependency
+           run: |
+              cd helm/
+              echo "GITHUB_WORKSPACE = ${{ github.workspace }}"
+              echo "Current directory: $(pwd)"         
+
+         - name: Install Helm
+           uses: azure/setup-helm@v4.2.0
+           with:
+             version: 'latest'
+           id: install    
