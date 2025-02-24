@@ -5,9 +5,18 @@ on:
   workflow_dispatch:
     inputs:
       pr_title:
-        description: 'Pull Request Title'
+        description: 'Pull Request Title :'
         required: true
         type: string
+      rollback_build:
+        description: 'Build number to be deployed for rollback :'
+        required: true
+        type: string
+      additional_input:
+        description: 'Any additional input :'
+        required: true
+        type: string        
+
 
 # on: [push]
 
