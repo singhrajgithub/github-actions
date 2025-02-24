@@ -13,10 +13,9 @@ on:
         required: true
         type: string
       additional:
-        description: 'Any additional input :'
+        description: 'additional details:'
         required: true
         type: string        
-
 
 # on: [push]
 
@@ -59,7 +58,5 @@ jobs:
               echo "Current directory: $(pwd)"     
               echo "progressing with the deployment in target environment"
               echo "PR title given values : ${{ github.event.inputs.pr_title }}
-              echo "Rollback build given values : ${{ github.event.inputs.rollback_build }}
-              # echo "Any additional input given values : ${{ github.event.inputs.additional }}              
-
- 
+              echo "Rollback build values : ${{ github.event.inputs.rollback_build }}
+              echo "Any additional input given : ${{ github.event.inputs.additional }}
