@@ -12,7 +12,7 @@ on:
         description: 'Rollback Build number to be deployed:'
         required: true
         type: string
-      additional_input:
+      additional:
         description: 'Any additional input :'
         required: true
         type: string        
@@ -60,6 +60,6 @@ jobs:
               echo "progressing with the deployment in target environment"
               echo "PR title given values : ${{ github.event.inputs.pr_title }}
               echo "Rollback build given values : ${{ github.event.inputs.rollback_build }}
-              echo "Any additional input given values : ${{ github.event.inputs.additional_input }}              
+              # echo "Any additional input given values : ${{ github.event.inputs.additional }}              
 
  
