@@ -59,4 +59,4 @@ jobs:
               echo "progressing with the deployment in target environment"
               echo "PR title given values : ${{ github.event.inputs.pr_title }}
               echo "Rollback build values : ${{ github.event.inputs.rollback_build }}
-              echo "Any additional input given : ${{ github.event.inputs.additional }}
+              # echo "Any additional input given : ${{ github.event.inputs.additional }}
